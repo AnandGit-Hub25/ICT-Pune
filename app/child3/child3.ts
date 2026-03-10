@@ -1,0 +1,11 @@
+import { Component, Input} from '@angular/core';
+
+@Component({
+  selector: 'app-child3',
+  imports: [],
+  templateUrl: './child3.html',
+  styleUrl: './child3.css',
+})
+export class Child3 {
+   @Input() myData:string='';
+}

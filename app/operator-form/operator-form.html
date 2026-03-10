@@ -1,0 +1,80 @@
+<h2>Operator Master (MES)</h2>
+
+<form #opForm="ngForm" (ngSubmit)="onSubmit(opForm)">
+
+  <label>Operator ID</label><br />
+  <input
+    type="text"
+    name="operatorId"
+    [(ngModel)]="operator.operatorId"
+    required
+  /><br /><br />
+
+  <label>Operator Name</label><br />
+  <input
+    type="text"
+    name="operatorName"
+    [(ngModel)]="operator.operatorName"
+    required
+  /><br /><br />
+
+  <label>Department</label><br />
+  <select
+    name="department"
+    [(ngModel)]="operator.department"
+    required
+  >
+    <option value="">Select</option>
+    <option value="Weighing">Weighing</option>
+    <option value="Dispensing">Dispensing</option>
+    <option value="Packing">Packing</option>
+  </select><br /><br />
+
+  <label>Skill / Role</label><br />
+  <select
+    name="skill"
+    [(ngModel)]="operator.skill"
+    required
+  >
+    <option value="">Select</option>
+    <option value="Operator">Operator</option>
+    <option value="Supervisor">Supervisor</option>
+  </select><br /><br />
+
+  <label>
+    <input
+      type="checkbox"
+      name="active"
+      [(ngModel)]="operator.active"
+    />
+    Active
+  </label><br /><br />
+
+  <button type="submit" []="opForm.invalid">
+    Save Operator
+  </button>
+
+</form>
+<br/>
+
+
+
+<h2>Operator Master List</h2>
+
+<table border="1" cellpadding="8">
+  <tr>
+    <th>Operator ID</th>
+    <th>Name</th>
+    <th>Department</th>
+    <th>Skill</th>
+    <th>Status</th>
+  </tr>
+
+  <tr *ngFor="let op of operatorList">
+    <td>{{ op.operatorId }}</td>
+    <td>{{ op.operatorName }}</td>
+    <td>{{ op.department }}</td>
+    <td>{{ op.skill }}</td>
+    <td>{{ op.active ? 'Active' : 'Inactive' }}</td>
+  </tr>
+</table>

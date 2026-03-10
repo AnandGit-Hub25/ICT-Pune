@@ -1,0 +1,20 @@
+<h2>Passing Data to Child Components</h2>
+<h3>{{msg}}</h3>
+<app-child2 (childEvent)="msg=$event"></app-child2>
+
+
+
+
+
+
+
+
+<app-child [myData]="name"></app-child>
+<button (click)="changeData()">Change Name</button>
+<br/>
+
+<app-child [myDataArray]="Fruits"></app-child>
+<app-child [myDataObject]="Obj"></app-child>
+<app-child [myDataObjectNew]="userData"></app-child>
+
+

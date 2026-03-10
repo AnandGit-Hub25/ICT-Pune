@@ -1,0 +1,108 @@
+<p>structural-direc works!</p>
+
+
+<div *ngIf="isDiv1Visible" class="bg-danger p-3 text-center">
+    <h4>Div-1</h4>
+</div>
+
+<div>
+    <div class="row pt-3">
+        <div class="col-3 text center">
+            <button  (click)="hidediv()" class="btn btn-danger" >Hide</button>
+            <button  (click)="showdiv()" class="btn btn-primary max-2">Show</button>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+
+<div *ngIf="isDiv2Visible" class="bg-danger p-3 text-center">
+    <h4>Div-2</h4>
+</div>
+
+<button  (click)="toggleDiv2()" class="btn btn-danger" >Toggle</button>
+
+
+<br>
+<br>
+<div  *ngIf="num1==num2" class="bg-secondary p-3 text-center">
+    <h4>Div-3</h4>
+</div>
+
+<input  type="text" [(ngModel)]="num1" placeholder="Num1" class="width-50">
+<input type="text" [(ngModel)]="num2" placeholder="Num2" class="width-50">
+
+<br>
+<br>
+<div  *ngIf="selectedState=='USA'" class="bg-primary p-3 text-center">
+    <h4>Div-4</h4>
+    <br>
+</div>
+<input [(ngModel)]="isActive" type="checkbox" class="width-50">
+
+
+<br>
+<br>
+<select [(ngModel)]="selectedState">
+    <option value=""> Select State</option>
+    <option value="India">India</option>
+    <option value="USA">USA</option>
+    <option value="AUS">Australia</option>
+</select>
+
+<br>
+<br>
+<div class="row">
+    <div class="col-3">
+        <ul>
+            <li *ngFor="let city of cityArray">{{city}}</li>
+        </ul>
+    </div>
+</div> 
+<div class="col-3"> 
+    <div *ngFor="let cityName of cityArray">{{cityName}}</div>
+</div>
+<br>
+
+
+
+<div class="col-3">
+    <select>
+        <option *ngFor="let city of cityArray"> {{city}}</option>
+    </select>
+</div>
+
+<br>
+<br>
+<div class="col-3">
+    <select>
+        <option *ngFor="let stud of studentList" [value]="stud.studId" >
+            {{stud.city}}
+        </option>
+    </select>
+</div>
+<br>
+<br>
+<table class="table table-bordered">
+   <thead>
+    <tr>
+        <th>Sr No</th>
+        <th>Name</th>
+        <th>City</th>
+        <th>Status</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr *ngFor="let student of studentList;let srNo=index">
+        <td>{{srNo +1}}</td>
+        <td>{{student.name}}</td>
+        <td>{{student.city}}</td>
+        <td>
+            <span *ngIf="student.isActive">Active</span>
+            <span *ngIf="!student.isActive">De-Active</span>
+        </td>
+        
+    </tr>
+   </tbody>
+
+</table>

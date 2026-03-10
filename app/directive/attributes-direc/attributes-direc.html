@@ -1,0 +1,69 @@
+<p>attributes-direc works!</p>
+<button class="btn btn-primary" [routerLink]="['/structural-direc']">Go To Structural</button>
+<div class="row pt-3">
+    <div class="p-3 text-center" [ngClass]="div1BgColor">
+        <h4>Div-1</h4>
+    </div>
+</div>
+
+<button class="btn btn-danger" (click)="addRedColor()">Add Red</button>
+<button class="btn btn-primary max-2" (click)="addBlueColor()">Add Blue</button>
+<br>
+<br>
+
+<div class="row pt-3">
+    <div class="p-3 text-center" [ngClass]="isDiv2Active== true ?'bg-success' : 'bg-warning'">
+        <h4>Div-2</h4>
+    </div>
+</div>
+<button class="btn btn-success" (click)="toggleDiv2Class()">Toggle</button>
+<br>
+<br>
+<div class="col-3">
+    <div class="p-3 text-center" [ngClass]="num1==num2 ? 'bg-primary' :'bg-danger'">
+        <h4>Div-3</h4>
+    </div>
+</div>
+<br>
+<input type="text" [(ngModel)]="num1" placeholder="num1" class="width-50">
+<input type="text" [(ngModel)]="num2" placeholder="num2" class="width-50">
+<br>
+<br>
+<div class="col-3">
+    <div class="p-3 text-center" [ngClass]="isActive ? 'bg-primary' :'bg-danger'">
+        <h4>Div-4</h4>
+    </div>
+</div>
+<input type="checkbox" [(ngModel)]="isActive" class="width-50">
+<br>
+<br>
+<table class="table table-bordered">
+   <thead>
+    <tr>
+        
+        <th>Name</th>
+        <th>City</th>
+        <th>Status</th>
+        <th>Gender</th>
+        <th>Total Mark</th>
+    </tr>
+   </thead>
+   <tbody>
+       <tr *ngFor="let stud of studentList">
+        <td> {{stud.name}} </td>
+        <td> {{stud.city}} </td>
+        <td [ngStyle]="{'background-color':stud.isActive? 'Green' : 'Red'}">
+            <span>{{stud.isActive ? 'Active' : 'De-Active'}}</span>
+        </td>
+        <td> {{stud.gender}} </td>
+        <td>
+            <div class="progress">
+  <div class="progress-bar" [ngStyle]="{'width':stud.TotalMark+'%'}">{{stud.TotalMark}}</div>
+  </div>
+
+        </td>
+        </tr>
+   </tbody>
+
+</table>
+

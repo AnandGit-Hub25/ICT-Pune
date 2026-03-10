@@ -1,0 +1,14 @@
+<h2>Student Data</h2>
+<table border="1">
+  <tr>
+    <th>Name</th>
+    <th>Role</th>
+    <th>Location</th>
+  </tr>
+
+  <tr *ngFor="let s of students">
+    <td>{{ s.name }}</td>
+    <td>{{ s.role }}</td>
+    <td>{{ s.location }}</td>
+  </tr>
+</table>
